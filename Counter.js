@@ -11,7 +11,7 @@ const Counter = props => {
   )
 }
 
-Counter.prototypes= {
+Counter.propTypes= {
   segCount: PropTypes.number,
 }
 
