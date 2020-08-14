@@ -3,12 +3,11 @@ import { StyleSheet, View, Button, Vibration} from 'react-native';
 import Constants from 'expo-constants';
 import Counter from './Counter'
 
-
 const REST_TIME = 300
 const STUDY_TIME = 1500
 
 export default class App extends React.Component {
-  
+
   state = {
     count: STUDY_TIME,
     studyTime: STUDY_TIME,
@@ -21,7 +20,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.interval = setInterval(this.dec, 1000)
-  }  
+  }
 
   componentWillUnmount() {
     clearInterval (this.interval)
@@ -53,7 +52,7 @@ export default class App extends React.Component {
   dec = () => {
     this.setState (prevState => {
       if (prevState.shouldRun) {
-        if (prevState.count > 0) {    
+        if (prevState.count > 0) {
           return {count: prevState.count - 1}
         } else if (prevState.studying){
           this.vibrate()
@@ -72,8 +71,8 @@ export default class App extends React.Component {
         }
       }
     })
-  }  
-          
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -91,6 +90,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    paddingTop: Constants.statusBarHeight, 
+    paddingTop: Constants.statusBarHeight,
   },
 })
